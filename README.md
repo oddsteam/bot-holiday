@@ -50,3 +50,7 @@ if botholiday.CheckHoliday(inst.GetBOTHoliday(), time.Now()) {
 ### Maintainer
 
 [ODDS](https://github.com/oddsteam)
+
+### License
+
+MIT
