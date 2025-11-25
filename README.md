@@ -10,14 +10,14 @@ go get github.com/oddsteam/bot-holiday
 
 ### Usage
 
-You can register and obtain a ClientID from [Here](https://apiportal.bot.or.th/bot/public/start).
+You can register and obtain a Autherized token from [Here](https://portal.api.bot.or.th/).
 
 ```go
 import (
     "github.com/oddsteam/bot-holiday/pkg/botholiday"
 )
 
-botholiday.Initialize("ClientID")
+botholiday.Initialize("AccessToken")
 ```
 
 ### Example
@@ -29,7 +29,7 @@ import (
     "github.com/oddsteam/bot-holiday/pkg/botholiday"
 )
 
-inst := botholiday.Initialize("Client ID.")
+inst := botholiday.Initialize("eyJvcmciOiI2NzM1...")
 inst.GetBOTHoliday()
 ```
 
@@ -41,7 +41,7 @@ import (
     "github.com/oddsteam/bot-holiday/pkg/botholiday"
 )
 
-inst := botholiday.Initialize("Client ID.")
+inst := botholiday.Initialize("eyJvcmciOiI2NzM1...")
 if botholiday.CheckHoliday(inst.GetBOTHoliday(), time.Now()) {
     // Do something if today is a holiday.
 }

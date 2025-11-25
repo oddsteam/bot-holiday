@@ -10,7 +10,7 @@ import (
 
 type HolidayConfig struct {
 	Url         string
-	ClientToken string
+	AccessToken string
 }
 
 type HolidayResponse struct {
@@ -34,10 +34,10 @@ type IHolidayConfig interface {
 	GetBOTHoliday() HolidayResponse
 }
 
-func Initialize(clientId string) IHolidayConfig {
+func Initialize(token string) IHolidayConfig {
 	return &HolidayConfig{
-		Url:         "https://apigw1.bot.or.th/bot/public/financial-institutions-holidays",
-		ClientToken: clientId,
+		Url:         "https://gateway.api.bot.or.th/financial-institutions-holidays/",
+		AccessToken: token,
 	}
 }
 
@@ -65,7 +65,7 @@ func (conf HolidayConfig) GetBOTHoliday() HolidayResponse {
 	if err != nil {
 		fmt.Println(err)
 	}
-	req.Header.Set("X-IBM-Client-Id", conf.ClientToken)
+	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", conf.AccessToken))
 	req.Header.Set("accept", "application/json")
 	client := &http.Client{}
 	res, err := client.Do(req)
